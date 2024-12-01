@@ -3,23 +3,11 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          This <code> will be</code> our first page.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          WaterWise
-        </a>
-      </header>
-    </div>
+  <h1>This is the first page</h1>
   );
+
+    
+  
 }
 
 export default App;
