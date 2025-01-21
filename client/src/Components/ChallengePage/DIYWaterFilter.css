@@ -1,0 +1,48 @@
+.task-container {
+    background-color: #f1f8e9;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-header h2 {
+    color: #558b2f;
+    font-size: 1.5em;
+  }
+  
+  .task-header p {
+    font-size: 1.1em;
+    color: #558b2f;
+  }
+  
+  .slider-container {
+    margin: 20px 0;
+  }
+  
+  .slider-container label {
+    font-size: 1.2em;
+    color: #558b2f;
+  }
+  
+  input[type="range"] {
+    width: 100%;
+  }
+  
+  .water-saved-info {
+    font-size: 1.3em;
+    color: #33691e;
+    font-weight: bold;
+  }
+  
+  .task-footer p {
+    font-size: 1.1em;
+    color: #33691e;
+  }
+  
+  .task-footer {
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #558b2f;
+  }
+  

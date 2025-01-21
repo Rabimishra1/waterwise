@@ -1,0 +1,39 @@
+.navbar {
+    background-color: #0077b6; /* Blue shade for navbar */
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 60px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    display: inline;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px 10px; /* Reduced padding for a simpler design */
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+}
+
+.navbar-links a:hover {
+    background: linear-gradient(to bottom, #0288D1, #00BCD4); /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow */
+}

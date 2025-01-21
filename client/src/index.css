@@ -1,13 +1,10 @@
+/* Override background only for acknowledgement page */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: none;  /* Remove global background gradient */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.acknowledgement-container {
+  background: linear-gradient(#F4F7FB, #D6EAF8);
+  padding: 20px;
+  color: #333;
 }

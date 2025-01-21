@@ -1,0 +1,175 @@
+
+body {
+    background: linear-gradient(to bottom, #0288D1, #00BCD4);
+    font-family: 'Orbitron', sans-serif;
+}
+.logo {
+    width: 200px; /* Set your desired width */
+    height: 100px; /* Set your desired height */
+    object-fit: cover; /* Ensures the image covers the entire space without distortion */
+}
+
+
+.header{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 30px;
+    
+}
+.text{
+    background: linear-gradient(to bottom, #0288D1, #00BCD4); /* Linear gradient */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    background-clip: text; /* Apply background clip to text */
+    color: transparent; /* Make the text color transparent so the gradient is visible */
+    font-size: 48px;
+    font-weight: 700;
+    
+}
+.underline{
+    width: 61px;
+    height: 6px;
+    background: linear-gradient(to bottom, #0288D1, #00BCD4);
+    border-radius: 9px;
+}
+.inputs{
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.input{
+    display:flex;
+    align-items: center;
+    margin:auto;
+    width: 480px;
+    height: 80px;
+    background: #eaeaea;
+    border-radius: 6px;
+
+}
+.input img{
+    margin:0px 30px;
+}
+.input input{
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border:none;
+    outline: none;
+    color: #797979;
+    font-size: 19px;
+
+}
+.input input::placeholder {
+    font-family: 'Orbitron', sans-serif; /* Change font family */
+    font-size: 16px; /* Adjust font size */
+    color: #797979; /* Set a placeholder color */
+    font-weight: 300; /* Light font weight */
+    letter-spacing: 0.5px; /* Slight letter-spacing */
+}
+
+.forgot-password{
+    padding-left: 62px;
+    margin-top: 27px;
+    color: #797979;
+    font-size: 18px;
+}
+.forgot-password span{
+    color: #4c004b;
+    cursor: pointer;
+
+}
+.submit-container{
+    display: flex;gap: 30px;
+    margin: 50px auto;
+}
+.submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 59px;
+    color: #fff;
+    background: #cae6ef;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+.gray{
+    background: linear-gradient(to bottom, #0288D1, #00BCD4);
+
+    color:#676767;
+}
+.tagline {
+    text-align: center;
+    font-size: 1rem; /* Smaller font size */
+    font-weight: 200;
+    color:white; /* Match the header color */
+    margin-bottom: 30px; /* Adjust margin to separate the tagline from the container */
+    font-family:'Orbitron', sans-serif; /* Modern, clean font */
+    line-height: 1.4;
+    letter-spacing: 0.5px; /* Slight letter spacing for readability */
+    padding: 0 20px; /* Optional padding for responsiveness */
+    position: absolute; /* Position outside the container */
+    top: 2%; /* Adjust as needed to position it properly on the page */
+    left: 50%;
+    transform: translateX(-50%); /* Center the tagline horizontally */
+    animation: fadeIn 1.5s ease-in-out; /* Optional fade-in effect */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10px;
+    width: 550px;
+    background: #fff;
+    padding-top:2px ;
+    border-radius: 30px;
+    padding-bottom: 30px;
+    position: relative; /* Ensure the container is positioned relative for the tagline to align correctly */
+}
+/* Container for the tagline */
+.tagline-container {
+    display: flex;
+    justify-content: space-between; /* Align text to the left and right */
+    width: 100%;
+    margin-bottom: 30px;
+    
+  }
+  
+  /* Left Tagline */
+  .left-tagline {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+    text-align: left;
+    font-family: 'Orbitron', sans-serif;
+    
+  }
+  
+  /* Right Tagline */
+  .right-tagline {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+    text-align: right;
+    font-family: 'Orbitron', sans-serif;
+    
+  }
+  
+  
