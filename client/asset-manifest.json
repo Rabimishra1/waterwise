@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/waterwise/static/css/main.bf93b3ff.chunk.css",
+    "main.js": "/waterwise/static/js/main.2373f60f.chunk.js",
+    "main.js.map": "/waterwise/static/js/main.2373f60f.chunk.js.map",
+    "runtime-main.js": "/waterwise/static/js/runtime-main.38757b76.js",
+    "runtime-main.js.map": "/waterwise/static/js/runtime-main.38757b76.js.map",
+    "static/js/2.586481e2.chunk.js": "/waterwise/static/js/2.586481e2.chunk.js",
+    "static/js/2.586481e2.chunk.js.map": "/waterwise/static/js/2.586481e2.chunk.js.map",
+    "static/js/3.10f8bd52.chunk.js": "/waterwise/static/js/3.10f8bd52.chunk.js",
+    "static/js/3.10f8bd52.chunk.js.map": "/waterwise/static/js/3.10f8bd52.chunk.js.map",
+    "index.html": "/waterwise/index.html",
+    "precache-manifest.886c44356f730e55d3e9b1b3d88f9203.js": "/waterwise/precache-manifest.886c44356f730e55d3e9b1b3d88f9203.js",
+    "service-worker.js": "/waterwise/service-worker.js",
+    "static/css/main.bf93b3ff.chunk.css.map": "/waterwise/static/css/main.bf93b3ff.chunk.css.map",
+    "static/js/2.586481e2.chunk.js.LICENSE.txt": "/waterwise/static/js/2.586481e2.chunk.js.LICENSE.txt",
+    "static/media/BG.mp4": "/waterwise/static/media/BG.7288dc7d.mp4",
+    "static/media/logo.png": "/waterwise/static/media/logo.3a1b6cd4.png",
+    "static/media/water_conservation.mp4": "/waterwise/static/media/water_conservation.8725d079.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.38757b76.js",
+    "static/js/2.586481e2.chunk.js",
+    "static/css/main.bf93b3ff.chunk.css",
+    "static/js/main.2373f60f.chunk.js"
+  ]
+}
