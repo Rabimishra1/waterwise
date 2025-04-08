@@ -1,4 +1,6 @@
 {
+  "homepage": "https://rabimishra1.github.io/Water-Wise",
+
   
   "name": "water-wise",
   
@@ -8,7 +10,8 @@
   
   "scripts": {
   
-    
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "start": "react-scripts start",
   
     
@@ -41,7 +44,7 @@
   "devDependencies": {
   
     
-  "gh-pages": "^6.2.0"
+  "gh-pages": "^6.3.0"
   
   }
 }

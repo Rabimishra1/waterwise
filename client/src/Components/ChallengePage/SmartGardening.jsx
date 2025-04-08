@@ -1,16 +1,27 @@
 import React, { useState } from "react";
+import Confetti from "react-confetti";
 import "./SmartGardening.css";
 
 const SmartGardening = () => {
   const [plants, setPlants] = useState(1);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [showYayMessage, setShowYayMessage] = useState(false);
   const waterSaved = plants * 5; // 5 liters per plant per day
 
   const handleSliderChange = (event) => {
     setPlants(parseInt(event.target.value, 10));
   };
 
+  const handleSave = () => {
+    setShowConfetti(true);
+    setShowYayMessage(true);
+    setTimeout(() => setShowConfetti(false), 3000);
+    setTimeout(() => setShowYayMessage(false), 4000);
+  };
+
   return (
     <div className="smart-gardening-container">
+      {showConfetti && <Confetti />}
       <h2>2. Smart Gardening</h2>
       <p>
         Use smart gardening methods like drip irrigation and moisture sensors to
@@ -37,6 +48,19 @@ const SmartGardening = () => {
       <p>
         Water saved: <strong>{waterSaved} liters/day</strong>
       </p>
+      <button className="save-button" onClick={handleSave}>
+        Save
+      </button>
+
+      {showYayMessage && (
+  <div className="yay-popup">
+    <div className="popup-content">
+      🎉 Yay! You saved <strong>{waterSaved.toFixed(2)} liters</strong> of water!
+    </div>
+  </div>
+)}
+
+
       <div className="water-effect">
         <div className="droplet" />
         <div className="droplet" />

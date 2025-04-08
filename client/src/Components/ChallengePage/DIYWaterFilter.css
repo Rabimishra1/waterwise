@@ -45,4 +45,87 @@
     font-size: 1.1em;
     color: #558b2f;
   }
+  .save-button {
+    margin-top: 10px;
+    padding: 8px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .save-button:hover {
+    background-color: #388e3c;
+  }
+  
+  .yay-text {
+    font-size: 1.2rem;
+    color: #2e7d32;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .yay-text {
+    font-size: 1.2rem;
+    color: #2e7d32;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .yay-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, #ffffff, #c8e6c9);
+    padding: 25px 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.5s ease-out, burstOut 1s 2.5s ease-in forwards;
+    z-index: 1000;
+    text-align: center;
+  }
+  
+  .popup-content {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2e7d32;
+    animation: textPulse 1.5s infinite;
+  }
+  
+  /* Entrance animation */
+  @keyframes popIn {
+    0% {
+      transform: translate(-50%, -50%) scale(0.6);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Exit burst animation */
+  @keyframes burstOut {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+  
+  /* Text pulsing effect */
+  @keyframes textPulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  
   

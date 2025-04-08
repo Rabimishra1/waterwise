@@ -1,17 +1,29 @@
 import React, { useState } from 'react';
+import Confetti from 'react-confetti';
 import './EducateOthers.css';
 
 const EducateOthers = () => {
   const [peopleEducated, setPeopleEducated] = useState(1);
-  const waterSavedPerPerson = 5; // Water saved per person educated in liters
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+
+  const waterSavedPerPerson = 5;
   const totalWaterSaved = peopleEducated * waterSavedPerPerson;
 
   const handleSliderChange = (event) => {
-    setPeopleEducated(event.target.value);
+    setPeopleEducated(parseInt(event.target.value, 10));
+  };
+
+  const handleSave = () => {
+    setShowConfetti(true);
+    setShowPopup(true);
+    setTimeout(() => setShowConfetti(false), 3000);
+    setTimeout(() => setShowPopup(false), 4000);
   };
 
   return (
     <div className="task educate-others">
+      {showConfetti && <Confetti />}
       <h3>1. Educate Others</h3>
       <input
         type="range"
@@ -24,6 +36,17 @@ const EducateOthers = () => {
       />
       <p className="highlight">People educated: {peopleEducated}</p>
       <p className="highlight">Water saved: {totalWaterSaved} liters</p>
+
+      <button className="save-button" onClick={handleSave}>Save</button>
+
+      {showPopup && (
+        <div className="yay-popup">
+          <div className="popup-content">
+            🎉 Awesome! You helped save <strong>{totalWaterSaved} liters</strong> of water!
+          </div>
+        </div>
+      )}
+
       <div className="effect">
         <div className="drop"></div>
         <div className="drop"></div>
