@@ -9,13 +9,13 @@ const Homepage = () => {
   const navigate = useNavigate();
 
   const goToChallenges = () => {
-    navigate('/challenges');  // Navigate to the ChallengePage when button is clicked
+    navigate('/challenges');
   };
 
   return (
     <>
       <div className="video-background">
-        <video autoPlay loop muted>
+        <video autoPlay loop muted preload="auto">
           <source src={video} type="video/mp4" />
         </video>
       </div>
@@ -29,6 +29,7 @@ const Homepage = () => {
             autoPlay
             loop
             muted
+            preload="auto"
             className="video-player"
             src={video}
             alt="Water Conservation Video"
