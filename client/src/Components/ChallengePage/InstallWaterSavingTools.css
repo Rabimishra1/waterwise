@@ -143,4 +143,36 @@
       transform: translateY(-10px);
     }
   }
+  /* Hover Image Section */
+.hover-image {
+  position: absolute;
+  top: 20px;
+  right: -320px;
+  width: 300px;
+  height: auto;
+  animation: fadeSlideIn 1s ease forwards;
+  z-index: 10;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hover-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(40px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
   

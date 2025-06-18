@@ -1,29 +1,55 @@
 import React, { useState } from 'react';
-import Confetti from 'react-confetti';
+import axios from 'axios';
 import './UseBuckets.css';
+import bucketsImage from '../Assets/buckets.png'; // Adjust the path as needed
 
 const UseBuckets = () => {
   const [bucketsUsed, setBucketsUsed] = useState(1);
   const [showConfetti, setShowConfetti] = useState(false);
   const [showYayMessage, setShowYayMessage] = useState(false);
+  const [error, setError] = useState(null);
+  const [hovered, setHovered] = useState(false);
 
-  const waterPerBucket = 10; // Water saved per bucket in liters
+  const waterPerBucket = 10;
   const waterSaved = bucketsUsed * waterPerBucket;
 
   const handleSliderChange = (event) => {
     setBucketsUsed(event.target.value);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setShowConfetti(true);
     setShowYayMessage(true);
+    setError(null);
+
+    try {
+      await axios.post(
+        'http://localhost:5000/api/savings',
+        {
+          challengeName: 'Use Buckets',
+          litres: waterSaved
+        },
+        {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('waterwise_token')}`
+          }
+        }
+      );
+    } catch (err) {
+      setError('Failed to save your progress. Please try again.');
+      console.error('Error saving challenge:', err);
+    }
+
     setTimeout(() => setShowConfetti(false), 3000);
     setTimeout(() => setShowYayMessage(false), 4000);
   };
 
   return (
-    <div className="task use-buckets">
-      {showConfetti && <Confetti />}
+    <div
+      className="task use-buckets"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       <h3>2. Use Buckets</h3>
       <input
         type="range"
@@ -39,6 +65,8 @@ const UseBuckets = () => {
 
       <button className="save-button" onClick={handleSave}>Save</button>
 
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
       {showYayMessage && (
         <div className="yay-popup">
           <div className="popup-content">
@@ -52,6 +80,12 @@ const UseBuckets = () => {
         <div className="drop"></div>
         <div className="drop"></div>
       </div>
+
+      {hovered && (
+        <div className="hover-image">
+          <img src={bucketsImage} alt="Use Buckets" />
+        </div>
+      )}
     </div>
   );
 };

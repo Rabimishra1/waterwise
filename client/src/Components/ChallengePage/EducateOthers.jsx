@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import Confetti from 'react-confetti';
+import axios from 'axios';
 import './EducateOthers.css';
+import educateImage from '../Assets/educate.png';
 
 const EducateOthers = () => {
   const [peopleEducated, setPeopleEducated] = useState(1);
   const [showConfetti, setShowConfetti] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [error, setError] = useState(null);
 
   const waterSavedPerPerson = 5;
   const totalWaterSaved = peopleEducated * waterSavedPerPerson;
@@ -14,17 +16,37 @@ const EducateOthers = () => {
     setPeopleEducated(parseInt(event.target.value, 10));
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setShowConfetti(true);
     setShowPopup(true);
+    setError(null);
+
+    try {
+      const token = localStorage.getItem('waterwise_token');
+      await axios.post(
+        'http://localhost:5000/api/savings',
+        {
+          challengeName: 'Educate Others',
+          litres: totalWaterSaved
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
+    } catch (err) {
+      setError('Failed to save your progress. Please try again.');
+      console.error('Error saving challenge:', err);
+    }
+
     setTimeout(() => setShowConfetti(false), 3000);
     setTimeout(() => setShowPopup(false), 4000);
   };
 
   return (
     <div className="task educate-others">
-      {showConfetti && <Confetti />}
-      <h3>1. Educate Others</h3>
+      <h3>3. Educate Others</h3>
       <input
         type="range"
         min="1"
@@ -39,10 +61,12 @@ const EducateOthers = () => {
 
       <button className="save-button" onClick={handleSave}>Save</button>
 
+      {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
+
       {showPopup && (
         <div className="yay-popup">
           <div className="popup-content">
-            🎉 Awesome! You helped save <strong>{totalWaterSaved} liters</strong> of water!
+            🎉 Great! You helped save <strong>{totalWaterSaved} liters</strong> of water!
           </div>
         </div>
       )}
@@ -51,6 +75,11 @@ const EducateOthers = () => {
         <div className="drop"></div>
         <div className="drop"></div>
         <div className="drop"></div>
+      </div>
+
+      {/* Hover Image */}
+      <div className="task-hover-image">
+        <img src={educateImage} alt="Educate Others Visual" />
       </div>
     </div>
   );

@@ -1,57 +1,88 @@
 import React, { useState } from 'react';
-import Confetti from 'react-confetti';
+import axios from 'axios';
 import './TreePlantingDrives.css';
+import treeImage from '../Assets/plantTrees.png';
 
 const TreePlantingDrives = () => {
-  const [treesPlanted, setTreesPlanted] = useState(0);
+  const [treesPlanted, setTreesPlanted] = useState(1);
   const [showConfetti, setShowConfetti] = useState(false);
   const [showYayMessage, setShowYayMessage] = useState(false);
+  const [error, setError] = useState(null);
+  const [hovered, setHovered] = useState(false);
 
-  const waterSaved = treesPlanted * 30; // 30 liters per tree
+  const waterSaved = treesPlanted * 30;
 
-  const handleSliderChange = (event) => {
-    setTreesPlanted(event.target.value);
+  const handleSliderChange = (e) => {
+    setTreesPlanted(e.target.value);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setShowConfetti(true);
     setShowYayMessage(true);
+    setError(null);
+
+    try {
+      await axios.post(
+        'http://localhost:5000/api/savings',
+        {
+          challengeName: 'Tree Planting Drives',
+          litres: waterSaved
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('waterwise_token')}`
+          }
+        }
+      );
+    } catch (err) {
+      setError('Failed to save your progress. Please try again.');
+      console.error('Error saving challenge:', err);
+    }
+
     setTimeout(() => setShowConfetti(false), 3000);
     setTimeout(() => setShowYayMessage(false), 4000);
   };
 
   return (
-    <div className="task-container">
-      {showConfetti && <Confetti />}
-      
-      <div className="task-header">
-        <h2>2. Tree Planting Drives</h2>
-        <p>Each tree planted can save about 30 liters of water per month due to improved soil moisture and local ecosystem changes.</p>
-      </div>
-      
-      <div className="slider-container">
-        <label htmlFor="trees-slider">Number of Trees Planted: {treesPlanted}</label>
-        <input
-          type="range"
-          id="trees-slider"
-          min="0"
-          max="100"
-          value={treesPlanted}
-          onChange={handleSliderChange}
-        />
-      </div>
-      
-      <div className="water-saved-info">
-        <p><strong>Total Water Saved:</strong> {waterSaved} liters per month</p>
-      </div>
+    <div
+      className="task tree-planting-drive"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <h3>3. Tree Planting Drives</h3>
+      <input
+        type="range"
+        min="1"
+        max="20"
+        value={treesPlanted}
+        onChange={handleSliderChange}
+        step="1"
+        className="slider"
+      />
+      <p className="highlight">Trees Planted: {treesPlanted}</p>
+      <p className="highlight">Water Saved: {waterSaved} liters</p>
 
       <button className="save-button" onClick={handleSave}>Save</button>
+
+      {error && <p style={{ color: 'red' }}>{error}</p>}
 
       {showYayMessage && (
         <div className="yay-popup">
           <div className="popup-content">
-            🌱 Yay! You saved <strong>{waterSaved} liters</strong> per month!
+            🌳 Yay! You saved <strong>{waterSaved} liters</strong> of water!
           </div>
+        </div>
+      )}
+
+      <div className="effect">
+        <div className="drop"></div>
+        <div className="drop"></div>
+        <div className="drop"></div>
+      </div>
+
+      {hovered && (
+        <div className="hover-image">
+          <img src={treeImage} alt="Tree Planting" />
         </div>
       )}
     </div>

@@ -1,39 +1,121 @@
+/* Navbar Styling */
 .navbar {
-    background-color: #0077b6; /* Blue shade for navbar */
-    padding: 15px 20px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    z-index: 10;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #0077b6;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 60px;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-links li {
-    display: inline;
+  display: inline;
 }
 
 .navbar-links a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 15px;
-    padding: 5px 10px; /* Reduced padding for a simpler design */
-    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-    display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 5px 10px;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
 }
 
 .navbar-links a:hover {
-    background: linear-gradient(to bottom, #0288D1, #00BCD4); /* Change color on hover */
-    transform: scale(1.1); /* Slightly enlarge */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow */
+  background: linear-gradient(to bottom, #0288D1, #00BCD4);
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+/* User Info Styling */
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.badge-trophy {
+  display: flex;
+  align-items: center;
+}
+
+.badge-trophy img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.user-avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide user name and stats */
+.user-name, .user-stats, .points, .level {
+  display: none !important;
+}
+
+.logout-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px ;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  /* Remove margin-top, no need now */
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Login Link Styling (if you want to show a login button) */
+.login-link {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.login-link:hover {
+  background: rgba(255, 255, 255, 0.4);
 }

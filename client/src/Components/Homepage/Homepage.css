@@ -244,9 +244,11 @@ button:hover {
 .logo {
     position: absolute;
     top: 10px;
-    left: 20px;
-    width: 200px;
-    height: 80px;
+    left: 5px;       /* Shifted more to the left */
+    padding-right: 50px;
+    width: 150px;    /* Smaller width */
+    height: 60px;    /* Smaller height */
     object-fit: cover;
     z-index: 2000;
 }
+

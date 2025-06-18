@@ -29,6 +29,8 @@ const ChallengePage = () => {
           <div className="section-content">
             <EducateOthers />
             <TreePlantingDrives />
+            
+            
           </div>
         );
       case "awarenessTasks":

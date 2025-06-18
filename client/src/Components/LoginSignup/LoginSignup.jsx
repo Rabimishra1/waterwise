@@ -1,110 +1,66 @@
-import React, { useState } from "react";
+import React from "react";
+import { Navigate } from "react-router-dom";
 import "./LoginSignup.css";
-import { useNavigate } from "react-router-dom";
 
-// Importing assets
+// Importing assets (adjust path based on your structure)
 import user_icon from "../Assets/person.png";
 import email_icon from "../Assets/email.png";
 import password_icon from "../Assets/password.png";
 import logo from "../Assets/logo.png";
+import google_icon from "../Assets/google.png";
 
 const LoginSignup = () => {
-  const [action, setAction] = useState("Sign Up");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const navigate = useNavigate();
+  const isAuthenticated = false;
 
-  // Handle Form Submission
-  const handleSubmit = () => {
-    navigate("/home");
-    if (!email || !password || (action === "Sign Up" && !name)) {
-      alert("Please fill all required fields!");
-      return;
-    }
-    // Simulating login or signup logic
-    console.log(`${action} successful!`);
-    console.log("Email:", email);
-    if (action === "Sign Up") {
-      console.log("Name:", name);
-    }
+  if (isAuthenticated) {
+    return <Navigate to="/home" replace />;
+  }
 
-    // Redirect to homepage
-    
+  const handleGoogleSignIn = () => {
+    window.open("http://localhost:5000/auth/google", "_self");
   };
 
   return (
-    <>
+    <div className="login-signup-page"> {/* Add this wrapper div */}
       <div className="logo-container">
         <img src={logo} alt="WaterWise Logo" className="logo" />
       </div>
-      <div className="tagline">
-      
-      </div>
+      <div className="tagline">Join the water conservation movement!</div>
+
       <div className="container">
         <div className="header">
-          <div className="text">{action}</div>
+          <div className="text">Welcome</div>
           <div className="underline"></div>
         </div>
+
+        <div className="google-signin" onClick={handleGoogleSignIn}>
+          <img src={google_icon} alt="Google Icon" />
+          <span>Sign in with Google</span>
+        </div>
+
+        <div className="divider"><span>OR</span></div>
+
         <div className="inputs">
-          {action === "Sign Up" && (
-            
-            <div className="input">
-              <img src={user_icon} alt="" />
-              <input
-                type="text"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-          )}
-          {/* Email Input */}
           <div className="input">
-            <img src={email_icon} alt="" />
-            <input
-              type="email"
-              placeholder="Email Id"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            <img src={email_icon} alt="Email Icon" />
+            <input type="email" placeholder="Email Id" disabled style={{ opacity: 0.5 }} />
           </div>
-          {/* Password Input */}
           <div className="input">
-            <img src={password_icon} alt="" />
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <img src={password_icon} alt="Password Icon" />
+            <input type="password" placeholder="Enter your password" disabled style={{ opacity: 0.5 }} />
           </div>
         </div>
-        {action === "Login" && (
-          <div className="forgot-password">
-            Lost Password? <span>Click here!</span>
-          </div>
-        )}
+
         <div className="submit-container">
-          {/* Submit Button */}
-          <button className="submit" onClick={handleSubmit}>
-            {action}
+          <button className="submit" disabled style={{ opacity: 0.5 }}>
+            Coming Soon
           </button>
-          {/* Toggle Between Login and Sign Up */}
           <div className="toggle-action">
-            {action === "Login" ? (
-              <span onClick={() => setAction("Sign Up")}>
-                Don’t have an account? Sign Up
-              </span>
-            ) : (
-              <span onClick={() => setAction("Login")}>
-                Already have an account? Login
-              </span>
-            )}
+            <span>Manual login will be enabled soon.</span>
           </div>
         </div>
       </div>
-    </>
+    </div> 
   );
 };
 

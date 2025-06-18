@@ -1,146 +1,174 @@
 .spread-awareness {
-    background: linear-gradient(135deg, #ffeb3b, #ffc107);
-    padding: 20px;
-    border-radius: 12px;
-    margin: 15px 0;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    position: relative;
-    text-align: center;
-    animation: fadeIn 1s ease-in-out;
+  background: linear-gradient(135deg, #ffe082, #ffd54f);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 15px 0;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.spread-awareness h3 {
+  font-size: 1.8rem;
+  color: #5d4037;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.spread-awareness .slider {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.spread-awareness .highlight {
+  font-size: 1.2rem;
+  color: #4e342e;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.save-button {
+  margin-top: 10px;
+  padding: 8px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: #388e3c;
+}
+
+.yay-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #ffffff, #fff9c4);
+  padding: 25px 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.5s ease-out, burstOut 1.4s 2.5s ease-in forwards;
+  z-index: 1000;
+  text-align: center;
+}
+
+.popup-content {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #6d4c41;
+  animation: textPulse 1.5s infinite;
+}
+
+.effect {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.effect .drop {
+  width: 15px;
+  height: 15px;
+  background-color: #fff176;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite;
+}
+
+.effect .drop:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.effect .drop:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Hover image popout */
+.hover-image {
+  position: absolute;
+  top: 20px;
+  right: -320px;
+  width: 300px;
+  height: auto;
+  animation: fadeSlideIn 1s ease forwards;
+  z-index: 10;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hover-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
   }
-  
-  .spread-awareness h3 {
-    font-size: 1.8rem;
-    color: #f57c00;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  .spread-awareness .slider {
-    width: 100%;
-    margin: 15px 0;
+}
+
+@keyframes popIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
   }
-  
-  .spread-awareness .highlight {
-    font-size: 1.2rem;
-    color: #e65100;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6);
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
   }
-  
-  .effect {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
+}
+
+@keyframes burstOut {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
   }
-  
-  .effect .drop {
-    width: 15px;
-    height: 15px;
-    background-color: #ffca28;
-    border-radius: 50%;
-    animation: bounce 1.2s infinite;
+  100% {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 0;
   }
-  
-  .effect .drop:nth-child(2) {
-    animation-delay: 0.2s;
+}
+
+@keyframes textPulse {
+  0%, 100% {
+    transform: scale(1);
   }
-  
-  .effect .drop:nth-child(3) {
-    animation-delay: 0.4s;
+  50% {
+    transform: scale(1.05);
   }
-  .save-button:hover {
-    background-color: #388e3c;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  .yay-text {
-    font-size: 1.2rem;
-    color: #2e7d32;
-    margin-top: 10px;
-    font-weight: bold;
+  50% {
+    transform: translateY(-10px);
   }
-  .yay-text {
-    font-size: 1.2rem;
-    color: #2e7d32;
-    margin-top: 10px;
-    font-weight: bold;
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(40px) scale(0.9);
   }
-  .yay-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, #ffffff, #c8e6c9);
-    padding: 25px 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-    animation: popIn 0.5s ease-out, burstOut 1s 2.5s ease-in forwards;
-    z-index: 1000;
-    text-align: center;
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
   }
-  
-  .popup-content {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #2e7d32;
-    animation: textPulse 1.5s infinite;
-  }
-  
-  /* Entrance animation */
-  @keyframes popIn {
-    0% {
-      transform: translate(-50%, -50%) scale(0.6);
-      opacity: 0;
-    }
-    100% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-    }
-  }
-  
-  /* Exit burst animation */
-  @keyframes burstOut {
-    0% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: translate(-50%, -50%) scale(2);
-      opacity: 0;
-    }
-  }
-  
-  /* Text pulsing effect */
-  @keyframes textPulse {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-  }
-  
-  
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-  
+}
